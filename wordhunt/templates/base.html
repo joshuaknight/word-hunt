@@ -1,0 +1,33 @@
+<html>
+	{% block title %}
+	<title>
+	Word Hunt
+	</title>
+	{% endblock %}
+
+<head>
+	{% load staticfiles %}
+	{% load bootstrap3 %}
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+	{% block header %}
+	
+	
+
+	{% endblock %}
+</head>
+	
+
+<body>
+	{% block content %}
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, post-check=0, pre-check=0" /> 
+	<meta http-equiv="Pragma" content="no-cache" />	
+	
+	{% endblock %}
+</body>
+	{% block footer %}
+	<center><h3>{{message_login}}</h3></center>
+	<center><h3>{{message}}</h3></center>
+	{% endblock %}
+</html>
+

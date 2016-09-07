@@ -1,0 +1,52 @@
+{% include "base.html" %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+
+{% block header %}
+	<style type="text/css">
+		.header{
+			margin-left:120px;
+		}
+	</style>
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+	<div class="panel-heading">
+	<div class="panel panel-default">	
+	</div>
+	</div>
+	</div><!-- /col-sm-12 -->
+	</div><!-- /row -->	
+
+	<div class="row">
+	<div class="col-sm-1">	
+	</div><!-- /col-sm-1 -->
+	<div class="col-sm-5">
+	<div class="panel panel-default">
+	<div class="panel-heading">	
+	<center><h3><strong>Score Board</strong></h3></center>
+	<h3>
+	<hr />
+	<strong>Score</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>Total Questions</strong>
+	</h3>
+	</div>
+	<div class="panel-body">
+	<h3>
+		<strong>{{ score }}</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{{ total }}</strong>
+	</h3>		
+		<hr />
+		<center><a href="{% url 'home' %}">
+		<button class="btn btn-primary">Take Test Again</button>
+		</a></center>
+	</div><!-- /panel-body -->
+	</div><!-- /panel panel-default -->
+	</div><!-- /col-sm-5 -->	
+	</div>
+	</div>			
+{% endblock %}
+=		

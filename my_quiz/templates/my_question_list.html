@@ -1,0 +1,38 @@
+{% include "base.html" %}
+{% load bootstrap3 %}
+{{ bootstrap_css }}
+{{ bootstrap_javascript }}
+{{ bootstrap_messages }}
+
+{% block header %}
+	<style type="text/css">
+		.container{
+			margin-left:100px;				
+			border-style:solid;
+			border-color:grey;
+			padding-bottom:30px;
+			padding-left: 120px;			
+		}
+	</style>
+	
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+	
+	{% bootstrap_form_errors form %}
+	<form action="" method="post" class="inline"> 
+		{% csrf_token %}
+		{{form.managment_form}}
+		{{form.media}}
+		{% bootstrap_form form layout='inline' %}
+		<button type='submit' class="btn btn-primary">SUBMIT</button>
+	</form>
+	</div>
+</div>	
+
+{% endblock %}
+
+

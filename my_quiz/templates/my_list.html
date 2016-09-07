@@ -1,0 +1,55 @@
+{% include "base.html" %}
+{% load bootstrap3 %}
+{{ bootstrap_css }}
+{{ bootstrap_javascript }}
+{% load static %}
+{{ bootstrap_messages }}
+
+{% block header %}
+	<style type="text/css">
+		.container{		
+			border-style:solid;
+			border-color:grey;
+			padding-bottom:30px;
+			padding-left: 0px;			
+			margin-left: 100px;
+		}
+		#timer{
+			color:red;
+			padding:10px;
+			margin-left:1000px;
+		}
+		.question{
+			padding-left:100px;		
+		}
+	</style>       
+
+	<script type="text/javascript" src="{% static 'js/timeout.js' %}"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+
+	{% comment %}
+
+	<div id='timer' />
+	<script type="text/javascript">window.onload = CreateTimer("timer", 26);</script>
+	</div>
+	{% endcomment %}
+	
+	<div class="question">
+		<h1>{{question_list}}</h1>
+	<form action="{% url 'next' i %}" method="post" class="inline"> 
+		{% csrf_token %}
+		<input type="radio" name="grp1" value="1" required>&nbsp;&nbsp;{{question_list.op1}}<br /><br />	
+		<input type="radio" name="grp1" value="2" required>&nbsp;&nbsp;{{question_list.op2}}<br /><br />
+		<input type="radio" name="grp1" value="3" required>&nbsp;&nbsp;{{question_list.op3}}<br /><br />
+		<input type="radio" name="grp1" value="4" required>&nbsp;&nbsp;{{question_list.op4}}<br /><br />	
+		<button type="submit" class="btn btn-primary">NEXT</button>
+	</form>
+{% endblock %}
+
+

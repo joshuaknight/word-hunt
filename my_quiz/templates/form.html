@@ -1,0 +1,15 @@
+{% include "base.html" %}
+{% load static %}
+{% load bootstrap3 %}
+{{ bootstrap_css }}
+{{ bootstrap_javascript }}
+
+{% block content %}
+<div class="container">
+	<form action="" class="form-horizontal" method="post">
+	{% csrf_token%}
+	{% bootstrap_form form layout='inline' %}
+	<button type='submit' class='btn btn-primary'>Submit</button>
+	</form>	
+</div>	
+{% endblock %}
