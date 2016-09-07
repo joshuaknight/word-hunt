@@ -5,15 +5,17 @@
 {% bootstrap_javascript %}
 
 {% block header %}
-	<center><h1 style="color:blue;">Sri Krishna Arts and Science College - Autonomous</h1>
-		<h2 style="color:blue;">KRICKBICCS 2K16 </h2>
-		<h3 style="color:blue;">WORD HUNT</h3></center>
+	<center><h1 style="color:white;  font-style: oblique; font-weight: bold;">Sri Krishna Arts and Science College - Autonomous</h1>
+		<h2 style="color:white;  font-style: oblique; font-weight: bold;">KRICKBICCS 2K16 </h2>
+		<h3 style="color:white;  font-style: oblique; font-weight: bold;">WORD HUNT</h3></center>
 
 	<style type="text/css">
 		body{
-			background-image: url("{% static 'sd.jpg' %}");			
-			background-repeat: no-repeat;
-			background-position:center top;
+			background-image: url("{% static 'star.jpg' %}");			
+			 
+  		  background-attachment:fixed;
+   		 background-repeat: no-repeat;
+    		background-size: cover;
 		}
 	</style>
 {% endblock %}
@@ -22,7 +24,7 @@
 		<center>
 		<h1>			
 			<a href="{% url 'round3' 7 %}" id="show" >
-			<button id="btn" type="link" onclick= "showStuff('ele','show','btn')">PART A</button></a>			
+			<button id="btn" type="link" onclick= "showStuff('ele','show','btn')">START</button></a>			
 		</h1>	
 		</center>
 		

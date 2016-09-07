@@ -50,6 +50,16 @@ def score(request):
 
 
 def round3(request,pk):		
+	if request.method == 'POST':	
+		if request.POST['user_input']:
+			x  = int(pk) - 1 
+			result = Round3.objects.get(pk = x)
+			if str(result.answer) == str(request.POST['user_input']):
+				answer = 'Correct'
+			else:
+				answer = 'NotCorrect'								
+			Round3_answer.objects.create(question = result.question,
+			user_input = request.POST['user_input'],correct = answer)
 	try:		
 		form = Round3_answerForm
 		query = Round3.objects.get(pk = pk)
@@ -57,23 +67,8 @@ def round3(request,pk):
 		return render(request,'round3.html',{'question_list' : query,'i' : i ,'form':form })		
 		
 	except Round3.DoesNotExist:
-		return HttpResponseRedirect('/score/round3')			
-
+		return HttpResponseRedirect('/score/round3')		
 	
-
-	if request.method == 'POST':	
-		if request.POST['user_input']:
-			x  = int(pk) - 1 
-			result = Round3.objects.get(pk = x)
-			print result.answer
-			if str(result.answer) == str(request.POST['user_input']):
-				answer = 'Correct'
-			else:
-				answer = 'NotCorrect'				
-			Round3_answer.objects.create(question = query.question,
-			user_input = request.POST['user_input'],correct = answer)
-
-	return HttpResponseRedirect('score_round3')			
 
 
 
@@ -96,6 +91,8 @@ def score_round(request):
 	query = Round3_answer.objects.filter(correct = 'Correct')
 	Score = query.count()
 	total = Round3_answer.objects.values_list('question').count()
+	print Score 
+	print total
 	return render(request,'scoreboard.html',{'score' : Score,'total' : total})
 
 
